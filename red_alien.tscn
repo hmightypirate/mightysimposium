@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://players/spritesheet_players.alienPink_front.atex" type="Texture" id=1]
+[ext_resource path="res://players/spritesheet_players.alienPink_stand.atex" type="Texture" id=2]
+[ext_resource path="res://players/spritesheet_players.alienPink_swim1.atex" type="Texture" id=3]
+[ext_resource path="res://players/spritesheet_players.alienPink_swim2.atex" type="Texture" id=4]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=5]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 38.2965
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+const GRAVITY = 2000
+const SPEED = 250
+const JUMP_SPEED = -1000
+const NEAR_ZERO = 10
+
+var acc = Vector2()
+var vel = Vector2()
+
+# obtain the collsion node
+onready var myfeet_col = get_node(\"myfeet\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	set_fixed_process(true)
+	set_process_input(true)
+	
+	acc.y = GRAVITY
+
+func _input(event):
+	if event.is_action_pressed(\"ui_up\") and myfeet_col.is_colliding():	
+		vel.y = JUMP_SPEED
+	
+func _fixed_process(delta):
+	
+	vel.x = SPEED * (-Input.is_action_pressed(\"ui_right\") + Input.is_action_pressed(\"ui_left\"))
+	vel.y += acc.y * delta
+	
+	if (abs(vel.y) < NEAR_ZERO):
+		vel.y = 0
+		
+	# move if you can, muahahah
+	# motion returns the vector with the desired movement blocked by the collision
+	var motion = move(vel * delta)
+	
+	if (self.is_colliding()):
+		var n = get_collision_normal()
+		motion = n.slide(motion)
+		# force to collide with the platform
+		vel = n.slide(vel)
+		move(motion)
+		
+						
+"
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[node name="red_alien" type="KinematicBody2D"]
+
+transform/scale = Vector2( 0.25, 0.25 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.96807, 2.16144, 54.3304 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 2.16144, 54.3304 )
+transform/scale = Vector2( 1, 1.96807 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 2 )
+animation = "walk"
+frame = 1
+playing = true
+
+[node name="myfeet" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 2.32452, 133.273 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+layer_mask = 1
+type_mask = 15
+
+
