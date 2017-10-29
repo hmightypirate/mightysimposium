@@ -69,7 +69,6 @@ trigger = false
 transform/pos = Vector2( 0.345337, -34.4365 )
 frames = SubResource( 2 )
 animation = "move"
-frame = 1
 playing = true
 
 
