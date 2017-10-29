@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=1]
 
-[ext_resource path="res://yellow_alien.gd" type="Script" id=1]
+[ext_resource path="res://blue_alien.gd" type="Script" id=1]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=2]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk2.atex" type="Texture" id=3]
 [ext_resource path="res://players/spritesheet_players.alienBlue_front.atex" type="Texture" id=4]
@@ -72,6 +72,7 @@ _update_shape_index = 0
 
 frames = SubResource( 2 )
 animation = "stand"
+frame = 1
 playing = true
 
 [node name="myfeet" type="RayCast2D" parent="."]
