@@ -65,8 +65,6 @@ func _fixed_process(delta):
 		# force to collide with the platform
 		vel = n.slide(vel)
 		move(motion)
-		
-						
 "
 
 [sub_resource type="SpriteFrames" id=3]
@@ -98,7 +96,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="red_alien" type="KinematicBody2D"]
+[node name="red_alien" type="KinematicBody2D" groups=[
+"alien",
+]]
 
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false

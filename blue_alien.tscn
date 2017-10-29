@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=1]
 
-[ext_resource path="res://blue_alien.gd" type="Script" id=1]
+[ext_resource path="res://yellow_alien.gd" type="Script" id=1]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=2]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk2.atex" type="Texture" id=3]
 [ext_resource path="res://players/spritesheet_players.alienBlue_front.atex" type="Texture" id=4]
@@ -46,7 +46,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="blue_alien" type="KinematicBody2D"]
+[node name="blue_alien" type="KinematicBody2D" groups=[
+"alien",
+]]
 
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
