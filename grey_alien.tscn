@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=1]
 
-[ext_resource path="res://blue_alien.gd" type="Script" id=1]
-[ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=2]
-[ext_resource path="res://players/spritesheet_players.alienBlue_walk2.atex" type="Texture" id=3]
-[ext_resource path="res://players/spritesheet_players.alienBlue_front.atex" type="Texture" id=4]
-[ext_resource path="res://players/spritesheet_players.alienBlue_stand.atex" type="Texture" id=5]
-[ext_resource path="res://players/spritesheet_players.alienBlue_swim1.atex" type="Texture" id=6]
-[ext_resource path="res://players/spritesheet_players.alienBlue_swim2.atex" type="Texture" id=7]
-[ext_resource path="res://players/spritesheet_players.alienBlue_climb1.atex" type="Texture" id=8]
-[ext_resource path="res://players/spritesheet_players.alienBlue_climb2.atex" type="Texture" id=9]
-[ext_resource path="res://players/spritesheet_players.alienBlue_duck.atex" type="Texture" id=10]
+[ext_resource path="res://grey_alien.gd" type="Script" id=1]
+[ext_resource path="res://players/spritesheet_players.alienBeige_walk1.atex" type="Texture" id=2]
+[ext_resource path="res://players/spritesheet_players.alienBeige_walk2.atex" type="Texture" id=3]
+[ext_resource path="res://players/spritesheet_players.alienBeige_front.atex" type="Texture" id=4]
+[ext_resource path="res://players/spritesheet_players.alienBeige_stand.atex" type="Texture" id=5]
+[ext_resource path="res://players/spritesheet_players.alienBeige_swim1.atex" type="Texture" id=6]
+[ext_resource path="res://players/spritesheet_players.alienBeige_swim2.atex" type="Texture" id=7]
+[ext_resource path="res://players/spritesheet_players.alienBeige_climb1.atex" type="Texture" id=8]
+[ext_resource path="res://players/spritesheet_players.alienBeige_climb2.atex" type="Texture" id=9]
+[ext_resource path="res://players/spritesheet_players.alienBeige_duck.atex" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -46,7 +46,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="blue_alien" type="KinematicBody2D" groups=[
+[node name="grey_alien" type="KinematicBody2D" groups=[
 "alien",
 ]]
 
@@ -72,7 +72,6 @@ _update_shape_index = 0
 
 frames = SubResource( 2 )
 animation = "stand"
-frame = 1
 playing = true
 
 [node name="myfeet" type="RayCast2D" parent="."]
