@@ -3,13 +3,13 @@
 [ext_resource path="res://blue_alien.gd" type="Script" id=1]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=2]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk2.atex" type="Texture" id=3]
-[ext_resource path="res://players/spritesheet_players.alienBlue_front.atex" type="Texture" id=4]
-[ext_resource path="res://players/spritesheet_players.alienBlue_stand.atex" type="Texture" id=5]
+[ext_resource path="res://players/spritesheet_players.alienBlue_climb1.atex" type="Texture" id=4]
+[ext_resource path="res://players/spritesheet_players.alienBlue_climb2.atex" type="Texture" id=5]
 [ext_resource path="res://players/spritesheet_players.alienBlue_swim1.atex" type="Texture" id=6]
 [ext_resource path="res://players/spritesheet_players.alienBlue_swim2.atex" type="Texture" id=7]
-[ext_resource path="res://players/spritesheet_players.alienBlue_climb1.atex" type="Texture" id=8]
-[ext_resource path="res://players/spritesheet_players.alienBlue_climb2.atex" type="Texture" id=9]
-[ext_resource path="res://players/spritesheet_players.alienBlue_duck.atex" type="Texture" id=10]
+[ext_resource path="res://players/spritesheet_players.alienBlue_duck.atex" type="Texture" id=8]
+[ext_resource path="res://players/spritesheet_players.alienBlue_front.atex" type="Texture" id=9]
+[ext_resource path="res://players/spritesheet_players.alienBlue_stand.atex" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -27,7 +27,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "stand",
+"name": "climb",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
@@ -35,14 +35,14 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "climb",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "stand",
 "speed": 5.0
 } ]
 

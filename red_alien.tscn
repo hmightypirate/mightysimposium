@@ -1,14 +1,15 @@
 [gd_scene load_steps=13 format=1]
 
-[ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=1]
-[ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=2]
-[ext_resource path="res://players/spritesheet_players.alienPink_front.atex" type="Texture" id=3]
-[ext_resource path="res://players/spritesheet_players.alienPink_stand.atex" type="Texture" id=4]
-[ext_resource path="res://players/spritesheet_players.alienPink_swim1.atex" type="Texture" id=5]
-[ext_resource path="res://players/spritesheet_players.alienPink_swim2.atex" type="Texture" id=6]
-[ext_resource path="res://players/spritesheet_players.alienPink_climb1.atex" type="Texture" id=7]
-[ext_resource path="res://players/spritesheet_players.alienPink_climb2.atex" type="Texture" id=8]
-[ext_resource path="res://players/spritesheet_players.alienPink_duck.atex" type="Texture" id=9]
+[ext_resource path="res://red_alien.gd" type="Script" id=1]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=2]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=3]
+[ext_resource path="res://players/spritesheet_players.alienPink_front.atex" type="Texture" id=4]
+[ext_resource path="res://players/spritesheet_players.alienPink_stand.atex" type="Texture" id=5]
+[ext_resource path="res://players/spritesheet_players.alienPink_climb1.atex" type="Texture" id=6]
+[ext_resource path="res://players/spritesheet_players.alienPink_climb2.atex" type="Texture" id=7]
+[ext_resource path="res://players/spritesheet_players.alienPink_duck.atex" type="Texture" id=8]
+[ext_resource path="res://players/spritesheet_players.alienPink_swim1.atex" type="Texture" id=9]
+[ext_resource path="res://players/spritesheet_players.alienPink_swim2.atex" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -16,83 +17,32 @@ custom_solver_bias = 0.0
 radius = 3.5
 height = 6.0
 
-[sub_resource type="GDScript" id=2]
-
-script/source = "extends KinematicBody2D
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-const GRAVITY = 2000
-const SPEED = 250
-const JUMP_SPEED = -1000
-const NEAR_ZERO = 10
-
-var acc = Vector2()
-var vel = Vector2()
-
-# obtain the collsion node
-onready var myfeet_col = get_node(\"myfeet\")
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	set_fixed_process(true)
-	set_process_input(true)
-	
-	acc.y = GRAVITY
-
-func _input(event):
-	if event.is_action_pressed(\"ui_up\") and myfeet_col.is_colliding():	
-		vel.y = JUMP_SPEED
-	
-func _fixed_process(delta):
-	
-	vel.x = SPEED * (-Input.is_action_pressed(\"ui_right\") + Input.is_action_pressed(\"ui_left\"))
-	vel.y += acc.y * delta
-	
-	if (abs(vel.y) < NEAR_ZERO):
-		vel.y = 0
-		
-	# move if you can, muahahah
-	# motion returns the vector with the desired movement blocked by the collision
-	var motion = move(vel * delta)
-	
-	if (self.is_colliding()):
-		var n = get_collision_normal()
-		motion = n.slide(motion)
-		# force to collide with the platform
-		vel = n.slide(vel)
-		move(motion)
-"
-
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "stand",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "climb",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -108,7 +58,7 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = SubResource( 2 )
+script/script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -120,9 +70,8 @@ _update_shape_index = 0
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "walk"
-frame = 1
 playing = true
 
 [node name="myfeet" type="RayCast2D" parent="."]
