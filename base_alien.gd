@@ -5,12 +5,14 @@ extends KinematicBody2D
 # var b = "textvar"
 
 const GRAVITY = 2000
-const SPEED = 250
+const SPEED = 50
 const JUMP_SPEED = -1000
 const NEAR_ZERO = 10
 
 var acc = Vector2()
 var vel = Vector2()
+
+var movement = "stand"
 
 # obtain the collsion node
 onready var myfeet_col = get_node("myfeet")
@@ -20,7 +22,6 @@ func _ready():
 	# Initialization here
 	set_fixed_process(true)
 	set_process_input(true)
-	
 	acc.y = GRAVITY
 
 func _input(event):
@@ -28,6 +29,7 @@ func _input(event):
 		vel.y = JUMP_SPEED
 	
 func _fixed_process(delta):
+	var movement = "stand"
 	
 	vel.x = SPEED * (Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left"))
 	vel.y += acc.y * delta
@@ -45,3 +47,16 @@ func _fixed_process(delta):
 		# force to collide with the platform
 		vel = n.slide(vel)
 		move(motion)
+	
+	# Set animation
+	if ((vel.y != 0) and (not myfeet_col.is_colliding())):
+		movement = "jump"
+	elif (vel.x != 0):
+		movement = "walk"
+	
+	# Set flip. If vel.x = 0, do not change
+	if (vel.x < 0):
+		self.get_node("Sprite").set_flip_h(true)
+	if (vel.x > 0):
+		self.get_node("Sprite").set_flip_h(false)
+	self.get_node("Sprite").set_animation(movement)
