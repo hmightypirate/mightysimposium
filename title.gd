@@ -10,11 +10,9 @@ var index = 0
 func all_aliens_do(move, flip):
 	for alienname in aliennames:
 		var alien = get_node(alienname)
-		alien.get_node("Sprite").stop()
-		alien.get_node("Sprite").set_animation("duck")
-		alien.get_node("Sprite").set_animation(move)
-		alien.get_node("Sprite").set_flip_h(flip)
-		alien.get_node("Sprite").play()
+		alien.get_node("player").stop(true)
+		alien.get_node("sprite").set_flip_h(flip)
+		alien.get_node("player").play(move)
 
 func _ready():
 	# Called every time the node is added to the scene.

@@ -15,7 +15,6 @@ var acc = Vector2()
 var vel = Vector2()
 
 # obtain the collsion node
-onready var myfeet_col = get_node("myfeet")
 onready var mykinect = get_node("KinematicBody2D")
 onready var mysprite = mykinect.get_node("AnimatedSprite")
 

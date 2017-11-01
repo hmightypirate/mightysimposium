@@ -15,7 +15,7 @@ var vel = Vector2()
 var movement = "stand"
 
 # obtain the collsion node
-onready var myfeet_col = get_node("myfeet")
+onready var right_foot = get_node("right_foot")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -25,7 +25,7 @@ func _ready():
 	acc.y = GRAVITY
 
 func _input(event):
-	if event.is_action_pressed("ui_up") and myfeet_col.is_colliding():	
+	if event.is_action_pressed("ui_up") and right_foot.is_colliding():	
 		vel.y = JUMP_SPEED
 	
 func _fixed_process(delta):
@@ -49,14 +49,16 @@ func _fixed_process(delta):
 		move(motion)
 	
 	# Set animation
-	if ((vel.y != 0) and (not myfeet_col.is_colliding())):
+	if ((vel.y != 0) and (not right_foot.is_colliding())):
 		movement = "jump"
 	elif (vel.x != 0):
 		movement = "walk"
 	
 	# Set flip. If vel.x = 0, do not change
 	if (vel.x < 0):
-		self.get_node("Sprite").set_flip_h(true)
+		self.get_node("sprite").set_flip_h(true)
 	if (vel.x > 0):
-		self.get_node("Sprite").set_flip_h(false)
-	self.get_node("Sprite").set_animation(movement)
+		self.get_node("sprite").set_flip_h(false)
+
+	if (self.get_node("player").get_current_animation() != movement):
+		self.get_node("player").play(movement)
