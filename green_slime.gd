@@ -15,8 +15,7 @@ var acc = Vector2()
 var vel = Vector2()
 
 # obtain the collsion node
-onready var mykinect = get_node("KinematicBody2D")
-onready var mysprite = mykinect.get_node("AnimatedSprite")
+onready var mysprite = get_node("AnimatedSprite")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -38,10 +37,10 @@ func _fixed_process(delta):
 		
 	# move if you can, muahahah
 	# motion returns the vector with the desired movement blocked by the collision
-	var motion = mykinect.move(vel * delta)
+	var motion = self.move(vel * delta)
 	
-	if (mykinect.is_colliding()):
-		var n = mykinect.get_collision_normal()
+	if (self.is_colliding()):
+		var n = self.get_collision_normal()
 		motion = n.slide(motion)
 		# force to collide with the platform
 		vel = n.slide(vel)
@@ -49,7 +48,7 @@ func _fixed_process(delta):
 		if abs(vel.x) < MIN_SPEED:
 			orientation = orientation * -1
 		
-		mykinect.move(motion)
+		self.move(motion)
 		
 	# FLIP sprite
 	if vel.x > 0:

@@ -25,7 +25,7 @@ func _ready():
 	acc.y = GRAVITY
 
 func _input(event):
-	if event.is_action_pressed("ui_up") and right_foot.is_colliding():	
+	if event.is_action_pressed("ui_up") and right_foot.is_colliding():
 		vel.y = JUMP_SPEED
 	
 func _fixed_process(delta):
@@ -40,6 +40,10 @@ func _fixed_process(delta):
 	# move if you can, muahahah
 	# motion returns the vector with the desired movement blocked by the collision
 	var motion = move(vel * delta)
+	
+	if (right_foot.is_colliding()):
+		if (right_foot.get_collider().is_in_group("bouncy")):
+			vel.y = 2 * JUMP_SPEED
 	
 	if (self.is_colliding()):
 		var n = get_collision_normal()
