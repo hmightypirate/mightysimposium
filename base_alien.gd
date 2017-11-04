@@ -7,7 +7,7 @@ extends KinematicBody2D
 const GRAVITY = 2000
 const SPEED = 50
 const JUMP_SPEED = -1000
-const NEAR_ZERO = 10
+const NEAR_ZERO = 1
 
 var acc = Vector2()
 var vel = Vector2()
@@ -31,7 +31,10 @@ func _input(event):
 func _fixed_process(delta):
 	var movement = "stand"
 	
-	vel.x = SPEED * (Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left"))
+	if (Input.is_action_pressed("ui_down") and right_foot.is_colliding()):
+		movement = "duck"
+	else:
+		vel.x = SPEED * (Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left"))
 	vel.y += acc.y * delta
 	
 	if (abs(vel.y) < NEAR_ZERO):
