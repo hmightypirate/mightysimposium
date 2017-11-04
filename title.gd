@@ -1,7 +1,7 @@
 extends Node
 
 const aliennames = ["red_alien", "grey_alien", "yellow_alien", "green_alien", "blue_alien"]
-const PERIOD = 3
+const PERIOD = 2
 const sequence = [["stand",false], ["walk",true], ["climb",false]]
 
 var timer = 0

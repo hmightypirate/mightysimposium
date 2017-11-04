@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=55 format=1]
 
 [ext_resource path="res://blue_alien.gd" type="Script" id=1]
 [ext_resource path="res://players/spritesheet_players.alienBlue_climb1.atex" type="Texture" id=2]
@@ -11,6 +11,41 @@
 [ext_resource path="res://players/spritesheet_players.alienBlue_stand.atex" type="Texture" id=9]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=10]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk2.atex" type="Texture" id=11]
+[ext_resource path="res://sound/all_your_flag.smp" type="Sample" id=12]
+[ext_resource path="res://sound/arg.smp" type="Sample" id=13]
+[ext_resource path="res://sound/choco.smp" type="Sample" id=14]
+[ext_resource path="res://sound/dead_squares.smp" type="Sample" id=15]
+[ext_resource path="res://sound/death_1.smp" type="Sample" id=16]
+[ext_resource path="res://sound/en_taro_square_2.smp" type="Sample" id=17]
+[ext_resource path="res://sound/explosion.smp" type="Sample" id=18]
+[ext_resource path="res://sound/fall_1.smp" type="Sample" id=19]
+[ext_resource path="res://sound/flag_1.smp" type="Sample" id=20]
+[ext_resource path="res://sound/goal_1.smp" type="Sample" id=21]
+[ext_resource path="res://sound/hadouken.smp" type="Sample" id=22]
+[ext_resource path="res://sound/hasta_la_vista.smp" type="Sample" id=23]
+[ext_resource path="res://sound/hit1.smp" type="Sample" id=24]
+[ext_resource path="res://sound/hit2.smp" type="Sample" id=25]
+[ext_resource path="res://sound/i_am_your_square_2.smp" type="Sample" id=26]
+[ext_resource path="res://sound/james_square.smp" type="Sample" id=27]
+[ext_resource path="res://sound/jump_1.smp" type="Sample" id=28]
+[ext_resource path="res://sound/kippee_ya_kai_2.smp" type="Sample" id=29]
+[ext_resource path="res://sound/kippee_yi_kay.smp" type="Sample" id=30]
+[ext_resource path="res://sound/more_squares.smp" type="Sample" id=31]
+[ext_resource path="res://sound/my_square.smp" type="Sample" id=32]
+[ext_resource path="res://sound/powerup.smp" type="Sample" id=33]
+[ext_resource path="res://sound/punch.smp" type="Sample" id=34]
+[ext_resource path="res://sound/run_square.smp" type="Sample" id=35]
+[ext_resource path="res://sound/shot_1.smp" type="Sample" id=36]
+[ext_resource path="res://sound/spawn_1.smp" type="Sample" id=37]
+[ext_resource path="res://sound/square_base_phone.smp" type="Sample" id=38]
+[ext_resource path="res://sound/strongest_square.smp" type="Sample" id=39]
+[ext_resource path="res://sound/theme_1.smp" type="Sample" id=40]
+[ext_resource path="res://sound/three_headed_2.smp" type="Sample" id=41]
+[ext_resource path="res://sound/timeout.smp" type="Sample" id=42]
+[ext_resource path="res://sound/too_mighty.smp" type="Sample" id=43]
+[ext_resource path="res://sound/wilhem.smp" type="Sample" id=44]
+[ext_resource path="res://sound/you_lose.smp" type="Sample" id=45]
+[ext_resource path="res://sound/you_win.smp" type="Sample" id=46]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -516,6 +551,219 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="SampleLibrary" id=8]
+
+samples/all_your_flag = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 12 )
+}
+samples/arg = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 13 )
+}
+samples/choco = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/dead_squares = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/death_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
+}
+samples/en_taro_square_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
+}
+samples/explosion = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 18 )
+}
+samples/fall_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 19 )
+}
+samples/flag_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 20 )
+}
+samples/goal_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 21 )
+}
+samples/hadouken = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 22 )
+}
+samples/hasta_la_vista = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 23 )
+}
+samples/hit1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 24 )
+}
+samples/hit2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 25 )
+}
+samples/i_am_your_square_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 26 )
+}
+samples/james_square = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 27 )
+}
+samples/jump_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 28 )
+}
+samples/kippee_ya_kai_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 29 )
+}
+samples/kippee_yi_kay = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 30 )
+}
+samples/more_squares = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 31 )
+}
+samples/my_square = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 32 )
+}
+samples/powerup = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 33 )
+}
+samples/punch = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 34 )
+}
+samples/run_square = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 35 )
+}
+samples/shot_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 36 )
+}
+samples/spawn_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 37 )
+}
+samples/square_base_phone = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 38 )
+}
+samples/strongest_square = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 39 )
+}
+samples/theme_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 40 )
+}
+samples/three_headed_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 41 )
+}
+samples/timeout = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 42 )
+}
+samples/too_mighty = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 43 )
+}
+samples/wilhem = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 44 )
+}
+samples/you_lose = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 45 )
+}
+samples/you_win = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 46 )
+}
+
 [node name="blue_alien" type="KinematicBody2D" groups=[
 "alien",
 ]]
@@ -565,5 +813,16 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="audio" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 8 )
+config/pitch_random = 0.0
 
 

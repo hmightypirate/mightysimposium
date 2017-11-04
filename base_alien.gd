@@ -13,9 +13,12 @@ var acc = Vector2()
 var vel = Vector2()
 
 var movement = "stand"
+var is_duck_playing = false
 
 # obtain the collsion node
 onready var right_foot = get_node("right_foot")
+# obtain the audio sampoles node
+onready var audio = get_node("audio")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -27,14 +30,19 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_up") and right_foot.is_colliding():
 		vel.y = JUMP_SPEED
+		audio.play("jump_1")
 	
 func _fixed_process(delta):
 	var movement = "stand"
 	
 	if (Input.is_action_pressed("ui_down") and right_foot.is_colliding()):
 		movement = "duck"
+		if(!is_duck_playing):
+			is_duck_playing = true
+			audio.play("choco")
 	else:
 		vel.x = SPEED * (Input.is_action_pressed("ui_right") - Input.is_action_pressed("ui_left"))
+		is_duck_playing = false
 	vel.y += acc.y * delta
 	
 	if (abs(vel.y) < NEAR_ZERO):
@@ -47,6 +55,7 @@ func _fixed_process(delta):
 	if (right_foot.is_colliding()):
 		if (right_foot.get_collider().is_in_group("bouncy")):
 			vel.y = 2 * JUMP_SPEED
+			audio.play("wilhem")
 	
 	if (self.is_colliding()):
 		var n = get_collision_normal()
