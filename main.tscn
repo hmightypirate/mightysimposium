@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://platform2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://red_alien.tscn" type="PackedScene" id=2]
 [ext_resource path="res://blue_alien.tscn" type="PackedScene" id=3]
 [ext_resource path="res://green_slime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://blue_ship.tscn" type="PackedScene" id=5]
 
 [node name="root" type="Node"]
 
@@ -28,5 +29,13 @@ transform/pos = Vector2( 789, 384 )
 [node name="gren_slime" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 670, 314 )
+
+[node name="blue_ship" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 923, 474 )
+
+[node name="gren_slime 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 937, 492 )
 
 
