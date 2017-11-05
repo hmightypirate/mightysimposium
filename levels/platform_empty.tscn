@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://tilesets/tileset_planet.tres" type="TileSet" id=1]
+[ext_resource path="res://tilesets/tiles.tres" type="TileSet" id=1]
 
 [node name="platform_empty" type="Node2D"]
 
