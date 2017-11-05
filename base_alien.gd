@@ -16,6 +16,7 @@ var movement = "stand"
 
 # obtain the collsion node
 onready var right_foot = get_node("right_foot")
+onready var fade_effect = get_node("fade_effect")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -23,6 +24,15 @@ func _ready():
 	set_fixed_process(true)
 	set_process_input(true)
 	acc.y = GRAVITY
+	
+	# Adding fade effect in alien nodes
+	if fade_effect:
+		fade_effect.interpolate_property(self, 'transform/scale',
+			self.get_scale(), Vector2(2.0, 2.0), 0.3,
+			Tween.TRANS_QUAD, Tween.EASE_OUT)
+		fade_effect.interpolate_property(self, 'visibility/opacity',
+			1, 0, 0.3,
+			Tween.TRANS_QUAD, Tween.EASE_OUT)
 
 func _input(event):
 	if event.is_action_pressed("ui_up") and right_foot.is_colliding():
@@ -66,3 +76,6 @@ func _fixed_process(delta):
 
 	if (self.get_node("player").get_current_animation() != movement):
 		self.get_node("player").play(movement)
+		
+func _on_fade_effect_tween_complete( object, key ):
+	queue_free()

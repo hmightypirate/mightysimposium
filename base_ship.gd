@@ -22,18 +22,12 @@ func _ready():
 func _fixed_process(delta):
 	print ("LEFTI ", left_area.get_overlapping_bodies())
 	
-func _on_leftArea2D_body_enter( body ):
-	print ("BODY ", body)
-	print ("body parent ", body.get_parent())
-	print ("FLUX ", body.get_name())
-	print ("FLUXI ", body)
-	print ("BODYNAME ", body.get_type())
-	
+func _on_leftArea2D_body_enter( body ):	
 	if body.is_in_group(my_alien):
-		print ("Good name ") 
 		# Check if it overlaps with the right area
 		if right_area.overlaps_body(body):
 			print ("Do the magic here ")
+			fade_out_alien(body)
 
 	
 	pass # replace with function body
@@ -44,16 +38,20 @@ func _on_leftArea2D_body_exit( body ):
 
 
 func _on_rightArea2D_body_enter( body ):
-	print ("BODY ", body)
-	
 	if body.is_in_group(my_alien):
-		print ("gOOD NAME ")
 		# Check if it overlaps with the left area
 		if left_area.overlaps_body(body):
 			print ("Do the magic here ")
+			fade_out_alien(body)
 	
 	pass # replace with function body
 
 func _on_rightArea2D_body_exit( body ):
 	pass # replace with function body
+
+func fade_out_alien(body):
+	var sprite = body
+	var fade_effect = body.get_node("fade_effect")
+	fade_effect.start()
+			
 

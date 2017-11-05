@@ -11,7 +11,7 @@
 [ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=9]
 [ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=10]
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 1.61586, -4.58628, 3.0657, -2.46329, 3.0657, 3.33609, 0.839153, 6.23578, -2.6819, 5.82154, -3.1997, 3.28431, -3.09614, -2.82576, -2.63012, -3.60246, 0.0106701, -4.84518 )
@@ -456,7 +456,7 @@ tracks/7/keys = {
 
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 11, 0, 0, 11, 0, 55 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -499,5 +499,12 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="fade_effect" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

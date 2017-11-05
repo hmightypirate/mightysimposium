@@ -11,7 +11,7 @@
 [ext_resource path="res://players/spritesheet_players.alienBlue_stand.atex" type="Texture" id=9]
 [ext_resource path="res://players/spritesheet_players.alienBlue_walk1.atex" type="Texture" id=10]
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 1.83611, -5.70807, 3.32783, -3.8721, 3.38521, 3.29967, 1.20499, 6.45525, -1.14735, 6.45525, -2.92595, 3.70129, -2.8112, -3.81472, -2.18009, -4.90483, 0.000133168, -6.10969 )
@@ -456,7 +456,7 @@ tracks/7/keys = {
 
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 11, 0, 0, 11, 0, 55 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -499,5 +499,14 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
+
+[node name="fade_effect" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_complete" from="fade_effect" to="." method="_on_fade_effect_tween_complete"]
 
 
