@@ -7,7 +7,6 @@ extends KinematicBody2D
 const GRAVITY = 2000
 const SPEED = 50
 const JUMP_SPEED = -1000
-const NEAR_ZERO = 1
 
 var acc = Vector2()
 var vel = Vector2()
@@ -45,17 +44,17 @@ func _fixed_process(delta):
 		is_duck_playing = false
 	vel.y += acc.y * delta
 	
-	if (abs(vel.y) < NEAR_ZERO):
-		vel.y = 0
-		
-	# move if you can, muahahah
-	# motion returns the vector with the desired movement blocked by the collision
-	var motion = move(vel * delta)
+	#if (abs(vel.y) < NEAR_ZERO):
+	#	vel.y = 0
 	
 	if (right_foot.is_colliding()):
 		if (right_foot.get_collider().is_in_group("bouncy")):
 			vel.y = 2 * JUMP_SPEED
 			audio.play("wilhem")
+	
+	# move if you can, muahahah
+	# motion returns the vector with the desired movement blocked by the collision
+	var motion = move(vel * delta)
 	
 	if (self.is_colliding()):
 		var n = get_collision_normal()
