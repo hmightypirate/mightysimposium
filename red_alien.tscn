@@ -1,21 +1,20 @@
 [gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://red_alien.gd" type="Script" id=1]
-[ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=2]
+[ext_resource path="res://players/spritesheet_players.alienPink_swim2.atex" type="Texture" id=2]
 [ext_resource path="res://players/spritesheet_players.alienPink_climb1.atex" type="Texture" id=3]
 [ext_resource path="res://players/spritesheet_players.alienPink_climb2.atex" type="Texture" id=4]
 [ext_resource path="res://players/spritesheet_players.alienPink_duck.atex" type="Texture" id=5]
 [ext_resource path="res://players/spritesheet_players.alienPink_swim1.atex" type="Texture" id=6]
-[ext_resource path="res://players/spritesheet_players.alienPink_swim2.atex" type="Texture" id=7]
-[ext_resource path="res://players/spritesheet_players.alienPink_front.atex" type="Texture" id=8]
-[ext_resource path="res://players/spritesheet_players.alienPink_stand.atex" type="Texture" id=9]
-[ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=10]
+[ext_resource path="res://players/spritesheet_players.alienPink_front.atex" type="Texture" id=7]
+[ext_resource path="res://players/spritesheet_players.alienPink_stand.atex" type="Texture" id=8]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk1.atex" type="Texture" id=9]
+[ext_resource path="res://players/spritesheet_players.alienPink_walk2.atex" type="Texture" id=10]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=7]
 
 custom_solver_bias = 0.0
-radius = 3.5
-height = 6.0
+points = Vector2Array( 1.61586, -4.58628, 3.0657, -2.46329, 3.0657, 3.33609, 0.839153, 6.23578, -2.6819, 5.82154, -3.1997, 3.28431, -3.09614, -2.82576, -2.63012, -3.60246, 0.0106701, -4.84518 )
 
 [sub_resource type="Animation" id=2]
 
@@ -245,7 +244,7 @@ tracks/4/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 2 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("sprite:transform/pos")
@@ -331,7 +330,7 @@ tracks/4/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 7 ), ExtResource( 8 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("sprite:transform/pos")
@@ -417,7 +416,7 @@ tracks/4/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("sprite:transform/pos")
@@ -451,12 +450,13 @@ tracks/7/keys = {
 }
 
 [node name="red_alien" type="KinematicBody2D" groups=[
+"red_alien",
 "alien",
 ]]
 
 transform/scale = Vector2( 0.25, 0.25 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 11, 0, 0, 11, 0, 55 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -464,13 +464,14 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionPolygon2D" parent="."]
 
 transform/pos = Vector2( 0, 55 )
 transform/scale = Vector2( 11, 11 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = Vector2Array( 0.0106701, -4.84518, -2.63012, -3.60246, -3.09614, -2.82576, -3.1997, 3.28431, -2.6819, 5.82154, 0.839153, 6.23578, 3.0657, 3.33609, 3.0657, -2.46329, 1.61586, -4.58628 )
+shape_range = Vector2( 0, 0 )
 trigger = false
-_update_shape_index = 0
 
 [node name="sprite" type="Sprite" parent="."]
 
