@@ -74,7 +74,7 @@ texture = ExtResource( 6 )
 [node name="Score" type="Node2D" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 512, 570 )
+transform/pos = Vector2( 512, 600 )
 
 [node name="background" type="Sprite" parent="Score"]
 
