@@ -3,7 +3,6 @@ extends Node2D
 const GRAVITY = 2000
 const SPEED = 100
 const MIN_SPEED = 10
-const NEAR_ZERO = 10
 
 var orientation = 1
 
@@ -31,9 +30,6 @@ func _fixed_process(delta):
 	
 	vel.x = SPEED * orientation 
 	vel.y += acc.y * delta
-	
-	if (abs(vel.y) < NEAR_ZERO):
-		vel.y = 0
 		
 	# move if you can, muahahah
 	# motion returns the vector with the desired movement blocked by the collision
