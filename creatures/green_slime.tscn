@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://green_slime.gd" type="Script" id=1]
+[ext_resource path="res://creatures/green_slime.gd" type="Script" id=1]
 [ext_resource path="res://enemies/spritesheet_enemies.slimeGreen.atex" type="Texture" id=2]
 [ext_resource path="res://enemies/spritesheet_enemies.slimeGreen_move.atex" type="Texture" id=3]
 [ext_resource path="res://enemies/spritesheet_enemies.slimeGreen_hit.atex" type="Texture" id=4]
 [ext_resource path="res://enemies/spritesheet_enemies.slimeGreen_dead.atex" type="Texture" id=5]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 

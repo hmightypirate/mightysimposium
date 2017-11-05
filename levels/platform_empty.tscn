@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://tilesets/tileset_planet.tres" type="TileSet" id=1]
+
+[node name="platform_empty" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65538, 2, -131072, 2, -131070, 2, -131068, 2, -131066, 2, -131064, 2, -131062, 2, -131060, 2, -131058, 2, -131056, 2, -131054, 2, -131052, 2, -131050, 2, -131048, 2, -131046, 2, -131044, 2, -131042, 2, -131040, 2, 65534, 2, 32, 2, 196606, 2, 131104, 2, 327678, 2, 262176, 2, 458750, 2, 393248, 2, 589822, 2, 524320, 2, 720894, 2, 655392, 2, 851966, 2, 786464, 2, 983038, 2, 917536, 2, 1114110, 2, 1048608, 2, 1245182, 2, 1179680, 2, 1376254, 2, 1310720, 2, 1310722, 2, 1310724, 2, 1310726, 2, 1310728, 2, 1310730, 2, 1310732, 2, 1310734, 2, 1310736, 2, 1310738, 2, 1310740, 2, 1310742, 2, 1310744, 2, 1310746, 2, 1310748, 2, 1310750, 2, 1310752, 2 )
+
+

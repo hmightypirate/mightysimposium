@@ -1,11 +1,14 @@
 [gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://platform2.tscn" type="PackedScene" id=1]
-[ext_resource path="res://red_alien.tscn" type="PackedScene" id=2]
-[ext_resource path="res://blue_alien.tscn" type="PackedScene" id=3]
-[ext_resource path="res://green_slime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/platform2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://aliens/red_alien.tscn" type="PackedScene" id=2]
+[ext_resource path="res://aliens/blue_alien.tscn" type="PackedScene" id=3]
+[ext_resource path="res://creatures/green_slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://music/MightyLD36_slow_1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+
+
+
 
 [node name="root" type="Node"]
 

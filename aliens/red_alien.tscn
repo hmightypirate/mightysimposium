@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=1]
 
-[ext_resource path="res://red_alien.gd" type="Script" id=1]
+[ext_resource path="res://aliens/red_alien.gd" type="Script" id=1]
 [ext_resource path="res://players/spritesheet_players.alienPink_climb1.atex" type="Texture" id=2]
 [ext_resource path="res://players/spritesheet_players.alienPink_climb2.atex" type="Texture" id=3]
 [ext_resource path="res://players/spritesheet_players.alienPink_hit.atex" type="Texture" id=4]
@@ -46,6 +46,7 @@
 [ext_resource path="res://sound/wilhem.smp" type="Sample" id=44]
 [ext_resource path="res://sound/you_lose.smp" type="Sample" id=45]
 [ext_resource path="res://sound/you_win.smp" type="Sample" id=46]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 

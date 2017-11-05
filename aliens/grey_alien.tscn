@@ -1,16 +1,16 @@
 [gd_scene load_steps=55 format=1]
 
-[ext_resource path="res://green_alien.gd" type="Script" id=1]
-[ext_resource path="res://players/spritesheet_players.alienGreen_climb1.atex" type="Texture" id=2]
-[ext_resource path="res://players/spritesheet_players.alienGreen_climb2.atex" type="Texture" id=3]
-[ext_resource path="res://players/spritesheet_players.alienGreen_hit.atex" type="Texture" id=4]
-[ext_resource path="res://players/spritesheet_players.alienGreen_duck.atex" type="Texture" id=5]
-[ext_resource path="res://players/spritesheet_players.alienGreen_swim1.atex" type="Texture" id=6]
-[ext_resource path="res://players/spritesheet_players.alienGreen_swim2.atex" type="Texture" id=7]
-[ext_resource path="res://players/spritesheet_players.alienGreen_front.atex" type="Texture" id=8]
-[ext_resource path="res://players/spritesheet_players.alienGreen_stand.atex" type="Texture" id=9]
-[ext_resource path="res://players/spritesheet_players.alienGreen_walk1.atex" type="Texture" id=10]
-[ext_resource path="res://players/spritesheet_players.alienGreen_walk2.atex" type="Texture" id=11]
+[ext_resource path="res://aliens/grey_alien.gd" type="Script" id=1]
+[ext_resource path="res://players/spritesheet_players.alienBeige_climb1.atex" type="Texture" id=2]
+[ext_resource path="res://players/spritesheet_players.alienBeige_climb2.atex" type="Texture" id=3]
+[ext_resource path="res://players/spritesheet_players.alienBeige_hit.atex" type="Texture" id=4]
+[ext_resource path="res://players/spritesheet_players.alienBeige_duck.atex" type="Texture" id=5]
+[ext_resource path="res://players/spritesheet_players.alienBeige_swim1.atex" type="Texture" id=6]
+[ext_resource path="res://players/spritesheet_players.alienBeige_swim2.atex" type="Texture" id=7]
+[ext_resource path="res://players/spritesheet_players.alienBeige_front.atex" type="Texture" id=8]
+[ext_resource path="res://players/spritesheet_players.alienBeige_stand.atex" type="Texture" id=9]
+[ext_resource path="res://players/spritesheet_players.alienBeige_walk1.atex" type="Texture" id=10]
+[ext_resource path="res://players/spritesheet_players.alienBeige_walk2.atex" type="Texture" id=11]
 [ext_resource path="res://sound/all_your_flag.smp" type="Sample" id=12]
 [ext_resource path="res://sound/arg.smp" type="Sample" id=13]
 [ext_resource path="res://sound/choco.smp" type="Sample" id=14]
@@ -46,6 +46,7 @@
 [ext_resource path="res://sound/wilhem.smp" type="Sample" id=44]
 [ext_resource path="res://sound/you_lose.smp" type="Sample" id=45]
 [ext_resource path="res://sound/you_win.smp" type="Sample" id=46]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -764,7 +765,7 @@ samples/you_win = {
 "sample": ExtResource( 46 )
 }
 
-[node name="green_alien" type="KinematicBody2D" groups=[
+[node name="grey_alien" type="KinematicBody2D" groups=[
 "alien",
 ]]
 
