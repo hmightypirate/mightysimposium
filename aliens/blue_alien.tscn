@@ -47,7 +47,6 @@
 [ext_resource path="res://sound/you_lose.smp" type="Sample" id=45]
 [ext_resource path="res://sound/you_win.smp" type="Sample" id=46]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -793,7 +792,7 @@ texture = ExtResource( 2 )
 
 [node name="right_foot" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 0, 130 )
+transform/pos = Vector2( 0, 126 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 layer_mask = 1

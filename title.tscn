@@ -1,17 +1,155 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://title.gd" type="Script" id=1]
 [ext_resource path="res://buttons/blueSheet.blue_button01.atex" type="Texture" id=2]
 [ext_resource path="res://buttons/blueSheet.blue_button00.atex" type="Texture" id=3]
 [ext_resource path="res://buttons.gd" type="Script" id=4]
 [ext_resource path="res://fonts/kenpixel.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://tilesets/tiles.tres" type="TileSet" id=6]
-[ext_resource path="res://aliens/red_alien.tscn" type="PackedScene" id=7]
-[ext_resource path="res://aliens/blue_alien.tscn" type="PackedScene" id=8]
-[ext_resource path="res://aliens/grey_alien.tscn" type="PackedScene" id=9]
-[ext_resource path="res://aliens/yellow_alien.tscn" type="PackedScene" id=10]
-[ext_resource path="res://aliens/green_alien.tscn" type="PackedScene" id=11]
-[ext_resource path="res://music/MightyLD36_slow_1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://ground/spritesheet_ground.dirtRight.atex" type="Texture" id=6]
+[ext_resource path="res://ground/spritesheet_ground.dirtMid.atex" type="Texture" id=7]
+[ext_resource path="res://ground/spritesheet_ground.dirtLeft.atex" type="Texture" id=8]
+[ext_resource path="res://ground/spritesheet_ground.dirtHill_right.atex" type="Texture" id=9]
+[ext_resource path="res://ground/spritesheet_ground.dirtHill_left.atex" type="Texture" id=10]
+[ext_resource path="res://ground/spritesheet_ground.dirtCenter.atex" type="Texture" id=11]
+[ext_resource path="res://ground/spritesheet_ground.dirtCorner_right.atex" type="Texture" id=12]
+[ext_resource path="res://ground/spritesheet_ground.dirtCorner_left.atex" type="Texture" id=13]
+[ext_resource path="res://aliens/red_alien.tscn" type="PackedScene" id=14]
+[ext_resource path="res://aliens/blue_alien.tscn" type="PackedScene" id=15]
+[ext_resource path="res://aliens/grey_alien.tscn" type="PackedScene" id=16]
+[ext_resource path="res://aliens/yellow_alien.tscn" type="PackedScene" id=17]
+[ext_resource path="res://aliens/green_alien.tscn" type="PackedScene" id=18]
+[ext_resource path="res://music/MightyLD36_slow_1.ogg" type="AudioStream" id=19]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, 64, -64, 64, -64, -64, 64, -64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, 64, -64, 64, -64, -64, 64, -64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, 64, -64, 64, -64, -64, 64, -64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, -64, 64, 64, -64, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -64, 64, -64, -64, 64, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, 64, -64, 64, -64, -64, 64, -64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 64, 64, -64, 64, -64, -64, 64, -64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -64, -64, 64, -64, 64, 64, -64, 64 )
+
+[sub_resource type="TileSet" id=9]
+
+0/name = "right_platform"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 128, 128 )
+0/occluder_offset = Vector2( 64, 64 )
+0/navigation_offset = Vector2( 64, 64 )
+0/shape_offset = Vector2( 64, 64 )
+0/shapes = [ SubResource( 1 ) ]
+0/one_way_collision_direction = Vector2( 0, 0 )
+0/one_way_collision_max_depth = 0.0
+1/name = "center_platform"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 128, 128 )
+1/occluder_offset = Vector2( 64, 64 )
+1/navigation_offset = Vector2( 64, 64 )
+1/shape_offset = Vector2( 64, 64 )
+1/shapes = [ SubResource( 2 ) ]
+1/one_way_collision_direction = Vector2( 0, 0 )
+1/one_way_collision_max_depth = 0.0
+2/name = "left_platform"
+2/texture = ExtResource( 8 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 128, 128 )
+2/occluder_offset = Vector2( 64, 64 )
+2/navigation_offset = Vector2( 64, 64 )
+2/shape_offset = Vector2( 64, 64 )
+2/shapes = [ SubResource( 3 ) ]
+2/one_way_collision_direction = Vector2( 0, 0 )
+2/one_way_collision_max_depth = 0.0
+3/name = "ramp_up"
+3/texture = ExtResource( 9 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 128, 128 )
+3/occluder_offset = Vector2( 64, 64 )
+3/navigation_offset = Vector2( 64, 64 )
+3/shape_offset = Vector2( 64, 64 )
+3/shapes = [ SubResource( 4 ) ]
+3/one_way_collision_direction = Vector2( 0, 0 )
+3/one_way_collision_max_depth = 0.0
+4/name = "ramp_down"
+4/texture = ExtResource( 10 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 128, 128 )
+4/occluder_offset = Vector2( 64, 64 )
+4/navigation_offset = Vector2( 64, 64 )
+4/shape_offset = Vector2( 64, 64 )
+4/shapes = [ SubResource( 5 ) ]
+4/one_way_collision_direction = Vector2( 0, 0 )
+4/one_way_collision_max_depth = 0.0
+5/name = "filled_block"
+5/texture = ExtResource( 11 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 128, 128 )
+5/occluder_offset = Vector2( 64, 64 )
+5/navigation_offset = Vector2( 64, 64 )
+5/shape_offset = Vector2( 64, 64 )
+5/shapes = [ SubResource( 6 ) ]
+5/one_way_collision_direction = Vector2( 0, 0 )
+5/one_way_collision_max_depth = 0.0
+6/name = "filled_block_left_corner"
+6/texture = ExtResource( 12 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 128, 128 )
+6/occluder_offset = Vector2( 64, 64 )
+6/navigation_offset = Vector2( 64, 64 )
+6/shape_offset = Vector2( 64, 64 )
+6/shapes = [ SubResource( 7 ) ]
+6/one_way_collision_direction = Vector2( 0, 0 )
+6/one_way_collision_max_depth = 0.0
+7/name = "filled_block_right_corner"
+7/texture = ExtResource( 13 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 128, 128 )
+7/occluder_offset = Vector2( 64, 64 )
+7/navigation_offset = Vector2( 64, 64 )
+7/shape_offset = Vector2( 64, 64 )
+7/shapes = [ SubResource( 8 ) ]
+7/one_way_collision_direction = Vector2( 0, 0 )
+7/one_way_collision_max_depth = 0.0
 
 [node name="root" type="Node"]
 
@@ -57,7 +195,7 @@ max_lines_visible = -1
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = SubResource( 9 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -72,27 +210,27 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 589823, 1, 524289, 1, 524291, 1, 524293, 1, 524295, 1, 524297, 1, 524299, 1, 524301, 1, 524303, 1 )
 
-[node name="red_alien" parent="." instance=ExtResource( 7 )]
+[node name="red_alien" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 250, 380 )
 transform/scale = Vector2( 1, 1 )
 
-[node name="blue_alien" parent="." instance=ExtResource( 8 )]
+[node name="blue_alien" parent="." instance=ExtResource( 15 )]
 
 transform/pos = Vector2( 840, 380 )
 transform/scale = Vector2( 1, 1 )
 
-[node name="grey_alien" parent="." instance=ExtResource( 9 )]
+[node name="grey_alien" parent="." instance=ExtResource( 16 )]
 
 transform/pos = Vector2( 700, 380 )
 transform/scale = Vector2( 1, 1 )
 
-[node name="yellow_alien" parent="." instance=ExtResource( 10 )]
+[node name="yellow_alien" parent="." instance=ExtResource( 17 )]
 
 transform/pos = Vector2( 550, 380 )
 transform/scale = Vector2( 1, 1 )
 
-[node name="green_alien" parent="." instance=ExtResource( 11 )]
+[node name="green_alien" parent="." instance=ExtResource( 18 )]
 
 transform/pos = Vector2( 400, 380 )
 transform/scale = Vector2( 1, 1 )
@@ -118,7 +256,7 @@ max_lines_visible = -1
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 12 )
+stream/stream = ExtResource( 19 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0

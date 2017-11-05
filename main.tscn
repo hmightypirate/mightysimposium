@@ -7,9 +7,6 @@
 [ext_resource path="res://music/MightyLD36_slow_1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 
-
-
-
 [node name="root" type="Node"]
 
 [node name="platform2" parent="." instance=ExtResource( 1 )]
