@@ -766,6 +766,7 @@ samples/you_win = {
 
 [node name="blue_alien" type="KinematicBody2D" groups=[
 "alien",
+"bouncy",
 ]]
 
 transform/scale = Vector2( 0.25, 0.25 )
