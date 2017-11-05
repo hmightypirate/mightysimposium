@@ -766,7 +766,6 @@ samples/you_win = {
 
 [node name="blue_alien" type="KinematicBody2D" groups=[
 "alien",
-"bouncy",
 ]]
 
 transform/scale = Vector2( 0.25, 0.25 )
@@ -797,7 +796,7 @@ transform/pos = Vector2( 0, 126 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 layer_mask = 1
-type_mask = 15
+type_mask = 7
 
 [node name="player" type="AnimationPlayer" parent="."]
 

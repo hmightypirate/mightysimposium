@@ -49,7 +49,7 @@ func _fixed_process(delta):
 	
 	if (right_foot.is_colliding()):
 		if (right_foot.get_collider().is_in_group("bouncy")):
-			vel.y = 2 * JUMP_SPEED
+			vel.y = JUMP_SPEED - 200
 			audio.play("wilhem")
 	
 	# move if you can, muahahah
