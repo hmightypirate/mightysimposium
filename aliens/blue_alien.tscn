@@ -766,6 +766,7 @@ samples/you_win = {
 
 [node name="blue_alien" type="KinematicBody2D" groups=[
 "alien",
+"blue_alien",
 ]]
 
 transform/scale = Vector2( 0.25, 0.25 )
@@ -824,5 +825,14 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 8 )
 config/pitch_random = 0.0
+
+[node name="fade_effect" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_complete" from="fade_effect" to="." method="_on_fade_effect_tween_complete"]
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://levels/platform2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://aliens/red_alien.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://creatures/green_slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://music/MightyLD36_slow_1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://aliens/blue_ship.tscn" type="PackedScene" id=7]
 
 [node name="root" type="Node"]
 
@@ -43,5 +44,9 @@ stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="blue_ship" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 477.782, 299.684 )
 
 

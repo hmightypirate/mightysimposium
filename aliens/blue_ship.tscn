@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://aliens/blue_ship.gd" type="Script" id=1]
+[ext_resource path="res://spaceships/spritesheet_lasers.laserBlue2.atex" type="Texture" id=2]
+[ext_resource path="res://spaceships/spritesheet_spaceships.shipBlue.atex" type="Texture" id=3]
+[ext_resource path="res://spaceships/spritesheet_spaceships.shipBlue_manned.atex" type="Texture" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 11.8087, -32.4766, 12.0034, 19.6255, -14.5754, 20.0674, -14.9665, -32.2144 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6.79736, -33.2116, 5.97363, 15.7336, -23.0526, 16.1518, -22.9962, -32.8822 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 446.121, 344.311, 448.516, 253.303, 574.251, 253.303, 571.856, 345.509 )
+
+[sub_resource type="SpriteFrames" id=7]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
+} ]
+
+[node name="blue_ship" type="Node2D"]
+
+transform/pos = Vector2( 0.23114, 8.23836 )
+transform/rot = 0.554783
+transform/scale = Vector2( 0.5, 0.5 )
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/self_opacity = 0.5
+transform/pos = Vector2( -0.313266, 32.3518 )
+texture = ExtResource( 2 )
+
+[node name="leftArea2D" type="Area2D" parent="."]
+
+transform/pos = Vector2( -5.02087, 55.3863 )
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="leftArea2D"]
+
+build_mode = 0
+polygon = Vector2Array( -14.9665, -32.2144, -14.5754, 20.0674, 12.0034, 19.6255, 11.8087, -32.4766 )
+shape_range = Vector2( 0, 0 )
+trigger = true
+
+[node name="rightArea2D" type="Area2D" parent="."]
+
+transform/pos = Vector2( 17.8046, 58.0422 )
+input/pickable = false
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="rightArea2D"]
+
+build_mode = 0
+polygon = Vector2Array( -22.9962, -32.8822, -23.0526, 16.1518, 5.97363, 15.7336, 6.79736, -33.2116 )
+shape_range = Vector2( 0, 0 )
+trigger = true
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -511.253, -321.533 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="Particles2D" type="Particles2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( 0.330764, 13.3771 )
+config/amount = 32
+config/lifetime = 2.0
+config/process_mode = 1
+params/direction = 0.0
+params/spread = 30.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 3.0
+params/final_size = 3.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -0.0557098, -21.4291 )
+frames = SubResource( 7 )
+animation = "empty"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -511.253, -321.533 )
+build_mode = 0
+polygon = Vector2Array( 571.856, 345.509, 574.251, 253.303, 448.516, 253.303, 446.121, 344.311 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+
